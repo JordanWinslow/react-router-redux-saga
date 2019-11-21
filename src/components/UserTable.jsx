@@ -1,14 +1,14 @@
-import React, { useEffect } from "react"
-import styled from "styled-components"
-import { connect } from "react-redux"
-import BG from "./BG"
+import React, { useEffect } from "react";
+import styled from "styled-components";
+import { connect } from "react-redux";
+import BG from "./BG";
 
 const UserTable = ({ history, users, requestUsers, requestPosts }) => {
   useEffect(() => {
-    requestUsers()
-    requestPosts()
-    console.log("UserTable Component Rendered.")
-  }, [])
+    requestUsers();
+    requestPosts();
+    console.log("UserTable Component Rendered.");
+  }, []);
 
   return (
     <Container>
@@ -36,19 +36,18 @@ const UserTable = ({ history, users, requestUsers, requestPosts }) => {
                 <TD className="largeScreenOnly">{user.website}</TD>
               </TR>
             </tbody>
-          )
+          );
         })}
       </Table>
     </Container>
-  )
-}
+  );
+};
 
 /**********BEGIN STYLING**********/
 const Container = styled.div`
   display: flex;
-  height: 100vh;
   justify-content: center;
-  align-items: center;
+  margin: 4rem 0;
   @media (max-width: 1120px) {
     .largeScreenOnly {
       display: none;
@@ -59,7 +58,7 @@ const Container = styled.div`
       }
     }
   }
-`
+`;
 const Table = styled.table`
   border-collapse: collapse;
   a {
@@ -68,7 +67,7 @@ const Table = styled.table`
   }
   box-shadow: 2px 2px 10px rgba(0, 50, 50, 0.3);
   backdrop-filter: blur(4px);
-`
+`;
 const TH = styled.th`
   font-size: 18px;
   letter-spacing: 1px;
@@ -76,7 +75,7 @@ const TH = styled.th`
   word-break: normal;
   color: #fdf6e3;
   background-color: #fe4365;
-`
+`;
 const TD = styled.td`
   font-size: 17px;
   padding: 20px 15px;
@@ -84,7 +83,7 @@ const TD = styled.td`
   border-color: #c44d58;
   color: #002b36;
   transition: 0.3s ease-in-out;
-`
+`;
 const TR = styled.tr`
   cursor: pointer;
   transition: 0.6s ease-in-out;
@@ -94,24 +93,24 @@ const TR = styled.tr`
       color: #fdf6e3;
     }
   }
-`
+`;
 /**********END STYLING**********/
 
 const mapStateToProps = state => {
-  return { users: state.users }
-}
+  return { users: state.users };
+};
 const mapDispatchToProps = dispatch => {
   return {
     requestUsers: () => {
-      dispatch({ type: "REQUEST_USERS" })
+      dispatch({ type: "REQUEST_USERS" });
     },
     requestPosts: () => {
-      dispatch({ type: "REQUEST_POSTS" })
+      dispatch({ type: "REQUEST_POSTS" });
     }
-  }
-}
+  };
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UserTable)
+)(UserTable);

@@ -1,3 +1,13 @@
+/*
+AUTHOR: Jordan Winslow
+DESCRIPTION: Created in 4-6 hours for a code test.
+This app uses asynchronous redux sagas to fetch data from 
+an API and store it in state where it is then manipulated by
+the user to create new "posts" for a series of users.
+
+This project combines React Router, Redux and Sagas
+to simulate an enterprise-level application.
+*/
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
